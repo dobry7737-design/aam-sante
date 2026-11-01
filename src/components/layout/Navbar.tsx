@@ -206,7 +206,7 @@ export function Navbar() {
             >
               <div className="glass-panel rounded-card-lg p-3 shadow-lift">
                 <div className="grid gap-1">
-                  {(mega === "assurance" ? assuranceMega : prestatairesMega).map((l) => (
+                  {assuranceMega.map((l) => (
                     <Link
                       key={l.href}
                       href={l.href}

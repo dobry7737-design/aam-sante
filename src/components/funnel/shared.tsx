@@ -63,11 +63,6 @@ export function mmss(totalSeconds: number): string {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-/* ── Clés de session ────────────────────────────────────────────────── */
-
-/** Résultat createSubscription transmis à la page de confirmation. */
-export const CONFIRM_SESSION_KEY = "aam-sante-confirmation";
-
 /** Construit le payload de souscription depuis le store (montant recalculé). */
 export function buildSubscriptionPayload(): SubscriptionPayload {
   const s = useSubscription.getState();

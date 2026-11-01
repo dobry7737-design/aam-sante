@@ -227,7 +227,6 @@ export function SubscriptionFunnel() {
                 className="min-h-11 bg-white"
                 onClick={() => {
                   state.reset();
-                  setSigned(false);
                   setBannerVisible(false);
                 }}
               >
