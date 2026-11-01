@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { INDEXABLE } from "@/lib/seo";
 import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
@@ -51,6 +52,10 @@ export const metadata: Metadata = {
     description:
       "Neuf compagnies partenaires comparées pour vous, à Bamako. Proposition chiffrée sous 24 h.",
   },
+  // `robots.txt` empêche l'exploration ; cette balise empêche l'indexation,
+  // qui peut survenir sans exploration si la page est liée ailleurs. Les deux
+  // sont nécessaires tant que le site n'est pas validé.
+  robots: INDEXABLE ? undefined : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

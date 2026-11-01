@@ -59,5 +59,14 @@ bloquera les appels.
 | Variable | Rôle | Valeur en production |
 |---|---|---|
 | `NEXT_PUBLIC_APP_URL` | base des URL canoniques, du sitemap et des métadonnées | `https://sante.aamassistances.com` |
+| `NEXT_PUBLIC_SITE_READY` | ouvre l'indexation par les moteurs | `true`, le jour de la mise en ligne |
 
-Sans elle, le site retombe sur cette même valeur par défaut.
+Sans `NEXT_PUBLIC_APP_URL`, le site retombe sur cette même valeur par défaut.
+
+`NEXT_PUBLIC_SITE_READY` vaut `false` par défaut, et le site est alors en
+**noindex** : `robots.txt` interdit l'exploration et chaque page porte la
+balise correspondante. C'est voulu — un déploiement partagé pour relecture
+ne doit pas finir dans les résultats de recherche, car une page indexée
+survit à la correction, et il s'agit de montants et de garanties au nom du
+cabinet. À passer à `true` une fois les tarifs, l'agrément et les textes
+validés.

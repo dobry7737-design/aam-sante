@@ -2,12 +2,24 @@ import { faq } from "@/data/faq";
 import type { FaqItem } from "@/data/types";
 
 /**
- * Données structurées JSON-LD (§10) : InsuranceAgency sur l'accueil,
- * FAQPage sur l'accueil et le centre d'aide. Aucune donnée inventée
- * présentée comme réelle : les coordonnées sont des placeholders TODO.
+ * Données structurées JSON-LD : InsuranceAgency sur l'accueil, FAQPage sur
+ * l'accueil et le centre d'aide. Rien d'inventé n'y est présenté comme réel.
  */
 
 export const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://sante.aamassistances.com";
+
+/**
+ * Le site est-il ouvert à l'indexation ?
+ *
+ * Faux par défaut, et c'est voulu. Tant que les tarifs, l'agrément et les
+ * textes ne sont pas validés, un déploiement de relecture ne doit pas se
+ * retrouver dans les résultats de recherche : une page indexée survit à la
+ * correction, et ce sont des montants et des garanties au nom du cabinet.
+ *
+ * Passer `NEXT_PUBLIC_SITE_READY=true` sur Vercel le jour de la vraie mise
+ * en ligne, et pas avant.
+ */
+export const INDEXABLE = process.env.NEXT_PUBLIC_SITE_READY === "true";
 
 /**
  * Données structurées du cabinet.
