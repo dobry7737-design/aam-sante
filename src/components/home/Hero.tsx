@@ -22,10 +22,17 @@ const HeroScene = dynamic(
   { ssr: false }
 );
 
+/**
+ * Ce que le cabinet tient aujourd'hui.
+ *
+ * Le remboursement Mobile Money, la carte digitale et le réseau de soins
+ * viendront avec l'espace assuré. Les annoncer avant reviendrait à vendre ce
+ * qui n'existe pas, et c'est la première chose que lit un visiteur.
+ */
 const reassurance = [
-  { icon: Smartphone, label: "Remboursé en Mobile Money" },
-  { icon: Check, label: "Carte digitale immédiate" },
-  { icon: MapPin, label: "Réseau de soins à Bamako et Kati" },
+  { icon: Check, label: "Neuf compagnies mises en concurrence" },
+  { icon: MapPin, label: "Un conseiller dédié à Bamako" },
+  { icon: Smartphone, label: "Réponse sous 24 h" },
 ];
 
 export function Hero() {
@@ -133,8 +140,8 @@ export function Hero() {
               transition={{ duration: duration.base, ease: ease.out, delay: 0.55 }}
               className="mt-6 max-w-[520px] text-[17px] leading-relaxed text-sand-50/75 sm:text-lg"
             >
-              Souscrivez en 5 minutes, présentez votre carte digitale chez le médecin,
-              soyez remboursé directement sur votre Mobile Money.
+              Dites-nous qui couvrir : AAM interroge ses compagnies partenaires et
+              vous remet une proposition chiffrée sous 24 h.
             </motion.p>
 
             <motion.div
@@ -144,7 +151,7 @@ export function Hero() {
               className="mt-8 flex flex-wrap items-center gap-3.5"
             >
               <PrimaryCta href="/simulateur" size="xl" variant="on-dark">
-                Simuler ma prime
+                Estimer mon budget
               </PrimaryCta>
               <Magnetic strength={8}>
                 <Button asChild size="xl" variant="outline-light">

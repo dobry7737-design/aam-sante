@@ -17,8 +17,8 @@ const panels = [
   {
     id: "particuliers",
     kicker: "Particuliers & familles",
-    title: "Une mutuelle qui vit dans votre poche",
-    benefits: ["Souscription 100 % en ligne", "Carte digitale avec QR code", "Remboursements Mobile Money"],
+    title: "La bonne couverture, choisie pour vous",
+    benefits: ["Neuf compagnies comparées pour vous", "Un conseiller dédié à Bamako", "Accompagnement en cas de soins"],
     href: "/assurance-sante",
     cta: "Découvrir les formules",
     accent: "from-teal-700 to-teal-900",
@@ -37,8 +37,8 @@ const panels = [
   {
     id: "prestataires",
     kicker: "Prestataires de soins",
-    title: "Des patients pris en charge, zéro impayé",
-    benefits: ["Tiers payant instantané", "Vérification des droits par QR", "Versements rapides et tracés"],
+    title: "Des patients couverts, des dossiers suivis",
+    benefits: ["Des patients couverts et identifiés", "Un interlocuteur unique pour les dossiers", "Des règlements suivis"],
     href: "/aide",
     cta: "Devenir partenaire",
     accent: "from-ink-soft to-ink",

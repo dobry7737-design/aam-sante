@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Bell, QrCode, Smartphone, Calculator, BadgeCheck } from "lucide-react";
+import { Bell, Users, Smartphone, Calculator, BadgeCheck } from "lucide-react";
 import { gsap, initGsap, ScrollTrigger } from "@/lib/motion/gsap";
 import { duration, ease } from "@/lib/motion/tokens";
 import { quote } from "@/lib/pricing";
@@ -17,30 +17,38 @@ import { cn } from "@/lib/utils";
  * « Du papier au digital » — storytelling épinglé en 4 étapes.
  * À gauche les étapes, à droite une maquette d'interface qui se transforme.
  */
+/**
+ * Le parcours tel qu'il se passe aujourd'hui.
+ *
+ * La version précédente décrivait une souscription payée en ligne, une carte
+ * à QR code reçue dans l'instant et un remboursement Mobile Money sous 72 h.
+ * Rien de cela n'est en service : ces étapes viendront avec l'espace assuré.
+ * Celles ci-dessous sont celles que le cabinet tient.
+ */
 const steps = [
   {
     id: 1,
     icon: Calculator,
-    title: "Je simule et je souscris en 5 minutes",
-    text: "Choisissez vos garanties, ajoutez vos proches, payez en Mobile Money. Tout se fait en ligne, sans formulaire papier ni déplacement.",
+    title: "J'estime mon budget",
+    text: "Trois questions suffisent pour situer l'ordre de grandeur : qui couvrir, à quel âge, à quel niveau. Sans engagement et sans donner son nom.",
   },
   {
     id: 2,
     icon: Smartphone,
-    title: "Je reçois ma carte digitale",
-    text: "Votre carte d'assuré arrive instantanément dans votre espace, avec son QR code personnel. Fini les attestations perdues.",
+    title: "Je décris ce que je veux couvrir",
+    text: "Les personnes, le niveau de garanties, les pièces. La demande part sur la ligne du cabinet — vous voyez exactement ce que vous transmettez.",
   },
   {
     id: 3,
-    icon: QrCode,
-    title: "Je me soigne sans avancer les frais",
-    text: "À l'accueil de la clinique, on scanne votre QR : « Droits ouverts ». La part de votre formule est réglée directement, c'est le tiers payant.",
+    icon: Users,
+    title: "AAM met les compagnies en concurrence",
+    text: "Un conseiller vous rappelle sous 24 h ouvrées, interroge nos neuf partenaires santé et vous remet une proposition chiffrée, au nom de la compagnie qui porte le risque.",
   },
   {
     id: 4,
     icon: Bell,
-    title: "Je suis remboursé en Mobile Money",
-    text: "Pour les soins hors tiers payant, le remboursement tombe sur votre Orange Money, Moov Africa Money ou Wave — sous 72 h en moyenne.",
+    title: "Je suis accompagné après la signature",
+    text: "Incorporation d'un proche, renouvellement, remboursement contesté : votre interlocuteur reste le même, et c'est lui qui parle à la compagnie.",
   },
 ];
 
@@ -85,59 +93,65 @@ function Panel({ index }: { index: number }) {
   }
   if (index === 1) {
     return (
-      <div className="relative mx-auto w-[230px] rounded-[28px] border-[6px] border-ink bg-ink p-1 shadow-card">
-        <div className="overflow-hidden rounded-card-lg bg-[linear-gradient(150deg,#12766F,#0B1F1E)] p-3">
-          <div className="mx-auto mb-2 h-4 w-16 rounded-full bg-black/60" />
-          <div className="rounded-2xl bg-white/95 p-3">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-teal-900">Ma carte</p>
-            <div className="mt-2 rounded-lg bg-[linear-gradient(128deg,#12766F,#0B1F1E)] p-2.5 text-white">
-              <div className="flex justify-between items-center">
-                <span className="text-[9px] font-bold">AAM Santé</span>
-                <span className="tnum text-[8px] opacity-80">AMSA-{new Date().getFullYear()}-8K4T</span>
-              </div>
-              <p className="mt-4 text-[10px] font-semibold uppercase">F. Traoré</p>
-              <div className="mt-1 flex justify-between items-center">
-                <span className="rounded bg-teal-500/30 px-1.5 py-0.5 text-[7px] font-bold uppercase">Confort</span>
-                <div className="grid size-6 grid-cols-3 gap-px bg-sand-50 p-0.5 rounded-sm">
-                  {Array.from({ length: 9 }).map((_, i) => <span key={i} className={i % 2 ? "bg-ink" : "bg-sand-50"} />)}
-                </div>
-              </div>
+      <MockShell title="Ma demande — récapitulatif">
+        <div className="space-y-2.5">
+          {[
+            ["Qui assurer", "Ma famille · 2 enfants"],
+            ["Niveau souhaité", "Confort"],
+            ["Commune", "Bamako — Hamdallaye"],
+          ].map(([cle, valeur]) => (
+            <div key={cle} className="flex items-baseline justify-between gap-3 text-[12px]">
+              <span className="text-muted-foreground">{cle}</span>
+              <span className="font-semibold text-ink">{valeur}</span>
             </div>
-            <div className="mt-2 flex items-center gap-1.5 text-[9px] font-medium text-success">
-              <Check className="size-3" /> Carte active · valide 12 mois
-            </div>
+          ))}
+          <div className="flex items-center gap-2 rounded-xl bg-teal-100 p-3 text-[12px] font-semibold text-teal-900">
+            <Smartphone className="size-4 shrink-0" />
+            Envoyé sur la ligne du cabinet
           </div>
         </div>
-      </div>
+      </MockShell>
     );
   }
   if (index === 2) {
     return (
-      <MockShell title="Clinique Pasteur — Accueil">
-        <div className="flex flex-col items-center py-2">
-          <div className="relative flex size-24 items-center justify-center">
-            <span className="absolute inset-0 rounded-2xl border-2 border-teal-500/40" />
-            <span className="absolute inset-0 animate-pulse-dot rounded-2xl border-2 border-teal-500/60" aria-hidden />
-            <QrCode className="size-12 text-teal-900" />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: duration.base, ease: ease.out }}
-            className="mt-4 flex items-center gap-2 rounded-full bg-success/10 px-4 py-2 text-[12px] font-bold text-success"
-          >
-            <Check className="size-4" /> Droits ouverts ✓
-          </motion.div>
-          <p className="mt-2 text-center text-[11px] text-muted-foreground">
-            Consultation couverte à 90 % · Rien à avancer
+      <MockShell title="Propositions reçues">
+        <div className="space-y-2">
+          {[
+            ["Compagnie A", true],
+            ["Compagnie B", false],
+            ["Compagnie C", false],
+          ].map(([nom, retenue], i) => (
+            <div
+              key={String(nom)}
+              className={cn(
+                "flex items-center justify-between rounded-xl p-2.5 text-[12px] ring-1",
+                retenue
+                  ? "bg-teal-100 font-semibold text-teal-900 ring-teal-700/30"
+                  : "bg-white text-muted-foreground ring-sand-200"
+              )}
+            >
+              <span>{nom}</span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-1.5 w-10 overflow-hidden rounded-full bg-sand-200">
+                  <span
+                    className={cn("block h-full rounded-full", retenue ? "bg-teal-500" : "bg-sand-300")}
+                    style={{ width: `${[92, 74, 61][i]}%` }}
+                  />
+                </span>
+                {retenue && <BadgeCheck className="size-4" />}
+              </span>
+            </div>
+          ))}
+          <p className="pl-1 text-[11px] text-muted-foreground">
+            Garanties et prime comparées poste par poste.
           </p>
         </div>
       </MockShell>
     );
   }
   return (
-    <MockShell title="Notifications">
+    <MockShell title="Mon conseiller">
       <div className="space-y-2.5">
         <motion.div
           initial={{ opacity: 0, x: 30 }}
@@ -150,15 +164,16 @@ function Panel({ index }: { index: number }) {
             <Bell className="size-4" />
           </span>
           <div>
-            <p className="text-[12px] font-bold text-ink">Orange Money</p>
-            <p className="tnum text-[13px] font-bold text-success">+ {formatFcfa(25000)} reçus</p>
+            <p className="text-[12px] font-bold text-ink">Incorporation d&rsquo;un enfant</p>
+            <p className="text-[12px] text-success">Transmise à la compagnie</p>
           </div>
         </motion.div>
         <p className="pl-1 text-[11px] text-muted-foreground">
-          Remboursement dossier #SIN-2025-0412 · analyses laboratoire
+          Votre interlocuteur reste le même d&rsquo;une année sur l&rsquo;autre.
         </p>
-        <div className="rounded-xl bg-teal-100 p-3 text-[12px] font-semibold text-teal-900">
-          Traitement moyen : 72 h ✓
+        <div className="flex items-center gap-2 rounded-xl bg-teal-100 p-3 text-[12px] font-semibold text-teal-900">
+          <Users className="size-4 shrink-0" />
+          Un conseiller dédié à Bamako
         </div>
       </div>
     </MockShell>
