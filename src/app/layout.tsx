@@ -25,32 +25,31 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "https://sante.aamassistances.com"),
   title: {
-    default: "AAM Santé — Assurance santé 100 % digitale au Mali",
+    default: "AAM Santé — Votre assurance santé au Mali, bien choisie",
     template: "%s · AAM Santé",
   },
   description:
-    "Souscrivez votre assurance santé en ligne en 5 minutes. Carte d'assuré digitale, tiers payant chez les prestataires conventionnés et remboursements en Mobile Money.",
+    "AAM Assistances Assurances Mali compare les offres santé de ses compagnies partenaires, pour les particuliers, les familles et les entreprises. Proposition chiffrée sous 24 h.",
   keywords: [
     "assurance santé Mali",
     "mutuelle Bamako",
-    "carte d'assuré digitale",
-    "Mobile Money",
-    "tiers payant",
-    "AAM Santé",
+    "courtier assurance Mali",
+    "assurance santé entreprise Bamako",
+    "AAM Assistances Assurances Mali",
   ],
   openGraph: {
-    title: "AAM Santé — Le soin, sans papier",
+    title: "AAM Santé — Votre assurance santé, bien choisie",
     description:
-      "L'assurance santé 100 % digitale au Mali : souscription en ligne, carte digitale immédiate, remboursement Mobile Money.",
+      "Neuf compagnies partenaires comparées pour vous, à Bamako. Proposition chiffrée sous 24 h.",
     locale: "fr_ML",
     type: "website",
     siteName: "AAM Santé",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AAM Santé — Le soin, sans papier",
+    title: "AAM Santé — Votre assurance santé, bien choisie",
     description:
-      "L'assurance santé 100 % digitale au Mali : souscription en ligne, carte digitale immédiate, remboursement Mobile Money.",
+      "Neuf compagnies partenaires comparées pour vous, à Bamako. Proposition chiffrée sous 24 h.",
   },
 };
 

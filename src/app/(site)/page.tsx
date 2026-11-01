@@ -22,7 +22,7 @@ const entryPrice = formatFcfa(Math.min(...products.map((p) => p.adultMonthly)));
 export const metadata: Metadata = {
   title: "AAM Santé — Assurance santé 100 % digitale au Mali",
   description:
-    `Souscrivez en 5 minutes, présentez votre carte digitale chez le médecin, soyez remboursé en Mobile Money. Essentiel, Confort, Premium — à partir de ${entryPrice}/mois.`,
+    `AAM compare les offres santé de ses neuf compagnies partenaires, pour vous, votre famille ou vos salariés. Trois niveaux de couverture, à partir de ${entryPrice}/mois à titre indicatif.`,
   alternates: { canonical: "/" },
 };
 

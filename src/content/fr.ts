@@ -19,14 +19,18 @@ export const fr = {
   },
   hero: {
     titleLines: ["Votre santé, couverte.", "Sans papier,", "sans attente."],
+    /* La promesse décrit ce que le cabinet fait : comparer et accompagner.
+       La souscription en ligne, la carte digitale et le remboursement Mobile
+       Money arriveront avec l'espace assuré — les annoncer avant reviendrait
+       à vendre ce qui n'existe pas. */
     subtitle:
-      "Souscrivez en 5 minutes, présentez votre carte digitale chez le médecin, soyez remboursé sur votre Mobile Money.",
+      "Dites-nous qui couvrir : AAM interroge ses compagnies partenaires et vous remet une proposition chiffrée sous 24 h.",
     primaryCta: "Simuler ma prime",
     secondaryCta: "Je suis une entreprise",
     reinsurance: [
-      "Remboursé en Mobile Money",
-      "Carte digitale immédiate",
-      "Réseau de soins à Bamako et Kati",
+      "Neuf compagnies mises en concurrence",
+      "Un conseiller dédié à Bamako",
+      "Accompagnement en cas de soins",
     ],
   },
   dock: {
@@ -36,7 +40,7 @@ export const fr = {
   },
   footer: {
     tagline:
-      "L'assurance santé 100 % digitale : souscription en ligne, tiers payant chez les prestataires conventionnés, remboursements Mobile Money.",
+      "Cabinet de courtage en assurances à Bamako. Nous comparons les offres santé des compagnies partenaires et accompagnons nos assurés au quotidien.",
     columns: {
       produit: "Produit",
       parcours: "Parcours",

@@ -154,8 +154,8 @@ export default function OpengraphImage() {
                 marginTop: 22,
               }}
             >
-              Souscription en 5 minutes, carte digitale immédiate,
-              remboursements en Mobile Money.
+              Neuf compagnies partenaires comparées pour vous.
+              Proposition chiffrée sous 24 h.
             </div>
           </div>
 

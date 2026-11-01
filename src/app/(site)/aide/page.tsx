@@ -11,7 +11,7 @@ import { allFaqJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Centre d'aide — AAM Santé",
   description:
-    "Souscription, carte digitale, tiers payant, remboursements Mobile Money : cherchez une réponse instantanée ou écrivez-nous sur WhatsApp, du lundi au samedi de 8h à 20h.",
+    "Couverture, garanties, remboursements : cherchez une réponse, ou écrivez-nous sur WhatsApp, du lundi au samedi de 8 h à 20 h.",
   alternates: { canonical: "/aide" },
 };
 

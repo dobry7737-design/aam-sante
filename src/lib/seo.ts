@@ -9,30 +9,36 @@ import type { FaqItem } from "@/data/types";
 
 export const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://sante.aamassistances.com";
 
-/** TODO: coordonnées réelles de l'agence à confirmer (mêmes mocks que /aide). */
+/**
+ * Données structurées du cabinet.
+ *
+ * Elles sont indexées par les moteurs et reprises telles quelles dans les
+ * résultats : elles doivent décrire ce que le cabinet fait réellement, et
+ * rien de plus. La version précédente annonçait souscription en ligne, carte
+ * à QR code, tiers payant conventionné et remboursements Mobile Money —
+ * aucun de ces services n'est en service aujourd'hui.
+ */
 export function insuranceAgencyJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
-    name: "AAM Santé",
+    name: "AAM Assistances Assurances Mali",
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
+    logo: `${SITE_URL}/logo-aam.png`,
     description:
-      "Plateforme d'assurance santé 100 % digitale au Mali : souscription en ligne, carte d'assuré digitale avec QR code, tiers payant chez les prestataires conventionnés et remboursements en Mobile Money.",
+      "Cabinet de courtage en assurances à Bamako. AAM compare les offres santé des compagnies partenaires, pour les particuliers, les familles et les entreprises, et accompagne ses assurés dans la gestion de leurs contrats et de leurs remboursements.",
     areaServed: { "@type": "Country", name: "Mali" },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Bamako",
       addressCountry: "ML",
     },
-    /* TODO: remplacer par le téléphone réel du service client. */
     telephone: "+223 20 29 40 40",
     openingHours: "Mo-Sa 08:00-20:00",
     availableService: [
-      { "@type": "InsuranceService", name: "Assurance santé particuliers & familles" },
-      { "@type": "InsuranceService", name: "Assurance santé groupe salariés" },
+      { "@type": "InsuranceService", name: "Courtage en assurance santé — particuliers et familles" },
+      { "@type": "InsuranceService", name: "Courtage en assurance santé — contrats groupe" },
     ],
-    paymentAccepted: "Orange Money, Moov Africa Money, Wave",
   };
 }
 
